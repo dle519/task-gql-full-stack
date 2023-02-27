@@ -1,36 +1,37 @@
-import {copyObject} from './utils';
+import { copyObject } from "./utils";
 
-test('Copy Object', () => {
+test("Copy Object", () => {
   const obj = {
-    alpha: 'Alpha',
+    alpha: "Alpha",
     bravo: {
-      charlie: 'Charlie',
-    }
-  }
+      charlie: "Charlie",
+    },
+  };
   const copiedObject = copyObject(obj);
-  expect(copiedObject).toEqual(obj)
+  expect(copiedObject).toEqual(obj);
 });
 
-test('Copied object is manipulated', () => {
+test("Copied object is manipulated", () => {
   const obj = {
-    alpha: 'Alpha',
+    alpha: "Alpha",
     bravo: {
-      charlie: 'Charlie',
-    }
-  }
+      charlie: "Charlie",
+    },
+  };
   const copiedObject = copyObject(obj);
-  copiedObject.delta = "Delta"
-  expect(copiedObject).not.toEqual(obj)
+  copiedObject.delta = "Delta";
+  expect(copiedObject).not.toEqual(obj);
 });
 
-test('Copied object is deeply manipulated', () => {
+test("Copied object is deeply manipulated", () => {
   const obj = {
-    alpha: 'Alpha',
+    alpha: "Alpha",
     bravo: {
-      charlie: 'Charlie',
-    }
-  }
-  const copiedObject = copyObject(obj);
-  copiedObject.bravo.charlie = "Charlie of duplicate object";
-  expect(copiedObject).not.toEqual(obj)
+      charlie: "Charlie",
+    },
+  };
+  const copiedObject = Object.assign({}, obj, {
+    bravo: { charlie: "Charlie of duplicate object" },
+  });
+  expect(copiedObject).not.toEqual(obj);
 });
