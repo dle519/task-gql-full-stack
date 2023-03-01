@@ -1,0 +1,5 @@
+.hero-buttons {
+    display: flex;
+    padding: 1rem;
+    justify-content: space-evenly;
+}

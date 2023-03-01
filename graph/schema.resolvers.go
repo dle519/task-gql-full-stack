@@ -13,17 +13,17 @@ import (
 )
 
 func (r *queryResolver) Heroes(ctx context.Context) ([]model.Character, error) {
-	luke := &model.Human{
+	luke := model.Human{
 		Name:          "Luke Skywalker",
 		HasLightsaber: true,
 	}
 
-	han := &model.Human{
+	han := model.Human{
 		Name:          "Han Solo",
 		HasLightsaber: false,
 	}
 
-	cp := &model.Droid{
+	cp := model.Droid{
 		Name:            "C-3PO",
 		PrimaryFunction: "Translator",
 	}
